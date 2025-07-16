@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Audiowide, Bai_Jamjuree } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
+import ContactPage from "./contact/page";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const audiowide = Audiowide({
+  variable: "--font-audiowide",
   subsets: ["latin"],
+  weight: ['400'],
+  display: 'swap'
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const baiJamjuree = Bai_Jamjuree({
+  variable: "--font-bai-jamjuree",
   subsets: ["latin"],
+  weight:['200' , '300' , '400' , '500' ,'600' ,'700'],
+  display: 'swap'
 });
 
 export const metadata: Metadata = {
@@ -25,9 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${audiowide.variable} ${baiJamjuree.variable} antialiased`}
       >
         {children}
+        <ContactPage/>
+        <Footer/>
       </body>
     </html>
   );
