@@ -3,6 +3,7 @@ import { Audiowide, Bai_Jamjuree } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import ContactPage from "./contact/page";
+import Header from "@/components/Header";
 
 const audiowide = Audiowide({
   variable: "--font-audiowide",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${audiowide.variable} ${baiJamjuree.variable} antialiased`}
       >
+        <Header/>
         {children}
         <ContactPage/>
         <Footer/>
