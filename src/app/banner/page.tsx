@@ -3,7 +3,7 @@ import React from 'react'
 
 const BannerPage = () => {
     return (
-        <div className='w-full h-auto min-h-[670px] relative flex bg-center bg-cover' style={{ backgroundImage: `url('/images/banner-image.png')` }}>
+        <div className='w-full h-auto min-h-[670px] relative my-10 flex bg-center bg-cover' style={{ backgroundImage: `url('/images/banner-image.png')` }}>
             <div className="overlay w-full h-full bg-black/20 absolute top-0 left-0 ">
                 <div className='w-full h-full flex justify-end items-end xl:pr-20 lg:pr-10 sm:pr-6 px-3 xl:py-14 lg:pb-10 pb-6'>
                     <div className='flex flex-col max-w-sm gap-4 text-white'>
