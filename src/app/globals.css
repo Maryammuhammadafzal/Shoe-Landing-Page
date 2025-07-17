@@ -123,4 +123,23 @@
 
 @theme {
   --breakpoint-xs: 30rem;
+  --animate-marquee: marquee 15s linear infinite;
+  @keyframes marquee {
+    0% {
+       transform: translateX(-100%);
+    }
+    100% {
+       transform: translateX(10%);
+    }
+  }
+  --animate-marquee-left: marquee-left 15s linear infinite;
+  @keyframes marquee-left {
+    0% {
+       transform: translateX(10%);
+    }
+    100% {
+       transform: translateX(-100%);
+    }
+  }
 }
+
