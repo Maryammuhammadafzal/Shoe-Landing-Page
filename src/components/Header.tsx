@@ -1,9 +1,19 @@
+'use client'
 import { MenuIcon, Sparkle } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Header = () => {
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setOffset(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     const nav_data = [
         {
             name: 'Home',
@@ -23,7 +33,7 @@ const Header = () => {
         },
     ]
     return (
-        <div className='w-full h-[150px] flex flex-col gap-6 justify-center items-center'>
+        <div className={`sticky bg-white shadow-sm top-0 left-0 z-50 w-full h-[150px] flex flex-col gap-6 justify-center items-center`}>
             <div className='lg:w-[90%] w-full flex justify-betwwen items-center lg:px-0 md:px-2 px-4 h-auto'>
                 <div className='md:w-1/3 md:flex hidden items-center gap-3 lg:text-base text-sm '>
                     <p className='font-mono'>Get 50% off on your first order</p>
