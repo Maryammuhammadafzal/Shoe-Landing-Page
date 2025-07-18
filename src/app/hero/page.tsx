@@ -1,14 +1,11 @@
 import React from 'react'
-import { Card, CardContent } from "@/components/ui/card"
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
 } from "@/components/ui/carousel"
 import Image from 'next/image'
-
+import Autoplay from "embla-carousel-autoplay"
 const HeroPage = () => {
     const carousel_data = [
         {
@@ -33,7 +30,13 @@ const HeroPage = () => {
     return (
         <div className='w-full h-screen flex justify-center items-center'>
 
-            <Carousel className="w-full overflow-hidden  h-screen">
+            <Carousel
+                plugins={[
+                    Autoplay({
+                        delay: 2000,
+                    }),
+                ]}
+             className="w-full overflow-hidden  h-screen">
                 <CarouselContent className='w-full h-screen'>
                     {carousel_data.map((data, index) => (
                         <CarouselItem key={index} className='w-full h-full' >

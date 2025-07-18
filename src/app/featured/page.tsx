@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
+
 const FeaturedPage = () => {
   const [isActive, setIsActive] = useState(2)
 
@@ -36,8 +37,8 @@ const FeaturedPage = () => {
         </h2>
 
         <div className='w-full flex flex-col justify-center items-center gap-16 h-auto'>
-          {/* Responsive container */}
-          <div className='relative w-full min-h-[650px] flex justify-center items-center flex-wrap gap-6 lg:flex-nowrap'>
+
+          <div className='relative w-full md:min-h-[650px] min-h-[800px] flex justify-center items-center flex-wrap gap-6 md:flex-nowrap'>
             {featured_data.map((feature, index) => (
               <div
                 key={index}
@@ -45,17 +46,16 @@ const FeaturedPage = () => {
                 className={`
                   transition-all duration-500 ease-in-out cursor-pointer
                   bg-white drop-shadow-xl rounded-2xl overflow-hidden
-                  flex flex-col lg:flex-row
-                  w-full sm:max-w-[90%] md:max-w-[650px] lg:w-[835px] lg:h-[636px]
-                  relative
+                  flex flex-col md:flex-row
+                  w-full xs:max-w-[90%] sm:max-w-[70%] md:max-w-[650px] lg:w-[835px] md:w-[750px] lg:h-[636px] md:h-[580px] h-auto
                   ${isActive === index ? 'scale-100 z-30' : 'scale-95 z-10'}
-                  ${index === 0 ? 'lg:absolute lg:left-[5%]' : index === 1 ? 'lg:absolute lg:left-[27%]' : 'lg:absolute lg:left-[49%]'}
+                  ${index === 0 ? 'absolute xl:left-[5%] lg:left-0 md:-left-8 md:top-0 top-0' : index === 1 ? 'absolute xl:left-[27%] lg:left-[15%] md:left-[5%]  md:top-0 top-[15%]' : 'absolute xl:left-[49%] lg:left-[30%] md:left-[13%] md:top-0 top-[30%]'}
                 `}
               >
-                {/* Content section */}
-                <div className='w-full lg:w-1/2 min-w-[320px] h-auto lg:h-full flex justify-center items-center gap-10 flex-col px-6 py-8'>
-                  <div className='flex flex-col max-w-[300px] justify-center items-center gap-4'>
-                    <h2 className='xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl xs:text-xl text-lg font-sans uppercase'>
+
+                <div className='w-full md:w-1/2 xs:min-w-[320px] max-w-[280px] max-md:max-h-[250px] md:h-full flex justify-center items-center xs:gap-10 md:flex-col flex-row px-6 py-8'>
+                  <div className='flex flex-col md:max-w-[300px] xs:max-w-[200px] max-w-[120px] justify-center md:items-center gap-4'>
+                    <h2 className='xl:text-4xl lg:text-4xl md:text-3xl sm:text-3xl xs:text-xl text-lg font-sans uppercase'>
                       {feature.title}
                     </h2>
                     <p className='md:text-base sm:text-sm text-xs font-mono'>
@@ -67,7 +67,7 @@ const FeaturedPage = () => {
                       </Button>
                     </div>
                   </div>
-                  <div className='min-h-[150px]'>
+                  <div className='min-h-[150px] max-md:w-[150px] msx-xs:max-w-[120px]'>
                     <Image
                       src={feature.logo}
                       alt='client-logo'
@@ -78,14 +78,13 @@ const FeaturedPage = () => {
                   </div>
                 </div>
 
-                {/* Image section */}
-                <div className='w-full lg:w-1/2 h-[300px] lg:h-full flex justify-center items-center'>
+                <div className='w-full md:w-1/2 h-[300px] md:h-full flex justify-center items-center'>
                   <Image
                     src={feature.image}
                     alt='feature-image'
                     width={100}
                     height={100}
-                    className='w-full h-full object-cover rounded-none lg:rounded-tr-3xl lg:rounded-br-3xl'
+                    className='w-full h-full object-cover rounded-none md:rounded-tr-3xl md:rounded-br-3xl'
                   />
                 </div>
               </div>
