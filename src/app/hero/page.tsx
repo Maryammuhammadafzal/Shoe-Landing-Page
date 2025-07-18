@@ -1,4 +1,6 @@
-import React from 'react'
+
+'use client'
+import React, { useEffect, useState } from 'react'
 import {
     Carousel,
     CarouselContent,
@@ -6,7 +8,15 @@ import {
 } from "@/components/ui/carousel"
 import Image from 'next/image'
 import Autoplay from "embla-carousel-autoplay"
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 const HeroPage = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const plugin = React.useRef(
+        Autoplay({ delay: 3000, stopOnInteraction: true })
+    )
+    console.log(plugin);
+
     const carousel_data = [
         {
             image: '/images/hero-image1.png',
@@ -26,26 +36,39 @@ const HeroPage = () => {
             text: '/images/hero-text3.png',
             outline: '/images/hero-outline3.png'
         },
-    ]
+    ];
+
+    useEffect(() => {
+        Aos.init({
+            duration: 2000,
+            once: false,
+        });
+    }, []);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            Aos.refresh();
+        }, 500);
+        return () => clearInterval(interval);
+    }, []);
+    console.log(currentIndex);
     return (
         <div className='w-full h-screen flex justify-center items-center'>
-
             <Carousel
-                plugins={[
-                    Autoplay({
-                        delay: 2000,
-                    }),
-                ]}
-             className="w-full overflow-hidden  h-screen">
+                plugins={[plugin.current]}
+                onTransitionEnd={() => {
+                    setCurrentIndex(prev => (prev + 1) % carousel_data.length);
+                    Aos.refresh();
+                }}
+                className="w-full overflow-hidden  h-screen">
                 <CarouselContent className='w-full h-screen'>
                     {carousel_data.map((data, index) => (
                         <CarouselItem key={index} className='w-full h-full' >
                             <div className='w-full h-full bg-cover bg-no-repeat relative bg-center' style={{ backgroundImage: `url(${data.bg})` }}>
-                                {/* <Image src='/images/hero-bg1.png' alt='image' width={300} height={300} className='w-full h-full object-cover object-top' /> */}
                                 <div className="w-full h-full flex justify-center items-center" >
-                                    <Image src={data.text} alt='text' width={300} height={300} className='w-[85%]' />
-                                    <Image src={data.image} alt='text' width={300} height={300} className='w-full absolute' />
-                                    <Image src={data.outline} alt='text' width={300} height={300} className='w-[85.4%] absolute' />
+                                    <Image data-aos={index === currentIndex ? "fade-right" : ""} src={data.text} alt='text' width={300} height={300} className='w-[85%]' />
+                                    <Image src={data.image} alt='image' width={300} height={300} className='w-full absolute' />
+                                    <Image data-aos={index === currentIndex ? "fade-right" : ""} src={data.outline} alt='outline' width={300} height={300} className='w-[85.4%] absolute' />
+
                                 </div>
                             </div>
                         </CarouselItem>
