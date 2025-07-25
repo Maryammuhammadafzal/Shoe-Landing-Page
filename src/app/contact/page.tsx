@@ -41,7 +41,7 @@ const ContactPage = () => {
                 {/* CopyRight*/}
                 <div className='flex  w-full h-auto'>
                     <p className='md:text-base text-center sm:text-sm text-xs'>
-                        © 2021 all copyright reserved. All Rights Reserved. <Link href='/' className='underline'> Rootlet Solution</Link>
+                        © 2021 all copyright reserved. All Rights Reserved. <Link target="_blank" href='https://rootletsolutions.com/' className='underline'> Rootlet Solution</Link>
                     </p>
                 </div>
 
