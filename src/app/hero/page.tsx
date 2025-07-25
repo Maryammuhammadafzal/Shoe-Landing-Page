@@ -66,7 +66,7 @@ const HeroPage = () => {
                             <div className='w-full h-full bg-cover bg-no-repeat relative bg-center' style={{ backgroundImage: `url(${data.bg})` }}>
                                 <div className="w-full h-full flex justify-center items-center" >
                                     <Image data-aos={index === currentIndex ? "fade-right" : ""} src={data.text} alt='text' width={300} height={300} className='w-[85%]' />
-                                    <Image src={data.image} alt='image' width={300} height={300} className='w-full absolute' />
+                                    <Image src={data.image} alt='image' width={300} height={300} className='w-full lg:block hidden absolute' />
                                     <Image data-aos={index === currentIndex ? "fade-right" : ""} src={data.outline} alt='outline' width={300} height={300} className='w-[85.4%] absolute' />
 
                                 </div>
