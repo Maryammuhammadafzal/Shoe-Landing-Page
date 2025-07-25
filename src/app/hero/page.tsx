@@ -52,7 +52,7 @@ const HeroPage = () => {
     }, []);
     console.log(currentIndex);
     return (
-        <div className='w-full h-screen flex justify-center items-center'>
+        <div className='w-full lg:h-screen md:h-[80vh] sm:h-[60vh] h-[40vh] flex justify-center items-center'>
             <Carousel
                 plugins={[plugin.current]}
                 onTransitionEnd={() => {
