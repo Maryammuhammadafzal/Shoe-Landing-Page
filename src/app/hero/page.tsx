@@ -59,8 +59,8 @@ const HeroPage = () => {
                     setCurrentIndex(prev => (prev + 1) % carousel_data.length);
                     Aos.refresh();
                 }}
-                className="w-full overflow-hidden  h-screen">
-                <CarouselContent className='w-full h-screen'>
+                className="w-full overflow-hidden  lg:h-screen md:h-[80vh] sm:h-[60vh] h-[40vh]">
+                <CarouselContent className='w-full lg:h-screen md:h-[80vh] sm:h-[60vh] h-[40vh]'>
                     {carousel_data.map((data, index) => (
                         <CarouselItem key={index} className='w-full h-full' >
                             <div className='w-full h-full bg-cover bg-no-repeat relative bg-center' style={{ backgroundImage: `url(${data.bg})` }}>
